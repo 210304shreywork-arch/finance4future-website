@@ -8,31 +8,38 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; background: #000; color: #fff; }
-    .glass { background: rgba(255,255,255,0.045); backdrop-filter: blur(40px) saturate(180%); border: 1px solid rgba(255,255,255,0.12); }
-    .nav-pill { background: rgba(10,10,15,0.75); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1); }
+    .glass { background: rgba(255,255,255,0.028); backdrop-filter: blur(64px) saturate(210%); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 40px rgba(0,0,0,0.55); }
+    .f4f-logo { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.05em; }
   </style>
 </head>
 <body>
-  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[999] w-[92%] max-w-[1100px]">
-    <div class="glass flex items-center justify-between px-8 py-3 rounded-full nav-pill">
-      <div class="hidden md:flex items-center gap-x-7 text-sm font-medium text-white/80">
-        <a href="index.html">Home</a>
-        <a href="activities.html">Activities</a>
-        <a href="meet-the-team.html">Meet the Team</a>
-      </div>
-      <a href="index.html" class="flex items-center gap-x-3">
-        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#FF2E92] to-[#3B82F6] flex items-center justify-center"><span class="text-white text-[10px] font-black">F4F</span></div>
-        <span class="font-semibold text-lg tracking-tight">Finance<span class="text-[#FF2E92]">4</span>Future</span>
-      </a>
-      <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
-        <a href="join-us.html" class="text-white">Join Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSchH_io6kWDjHRBQhZ-bfIUkF8kb-GQ75v2Zf8AEupTkvYUbw/viewform?usp=sharing&ouid=117813947364170481853" target="_blank" class="px-6 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-[#FF2E92] to-[#3B82F6] text-white">JOIN NOW</a>
+  <nav class="fixed top-0 left-0 right-0 z-[999]">
+    <div class="max-w-6xl mx-auto px-4 pt-3">
+      <div class="glass flex items-center justify-between px-5 md:px-6 py-3 rounded-full border border-white/10">
+        <div class="hidden md:flex items-center gap-x-6 text-sm font-medium text-white/80">
+          <a href="index.html">Home</a>
+          <a href="activities.html">Activities</a>
+          <a href="meet-the-team.html">Meet the Team</a>
+        </div>
+        <a href="index.html" class="flex items-center gap-x-2 text-lg font-bold tracking-tight">
+          <span class="f4f-logo"><span class="text-[#FF2E92]">F</span>inance<span class="text-[#3B82F6]">4</span>Future</span>
+        </a>
+        <div class="hidden md:flex items-center gap-x-5 text-sm font-medium">
+          <a href="join-us.html" class="text-white">Join Us</a>
+          <a href="contact.html" class="hover:text-white transition-colors text-white/80">Contact</a>
+          <a href="https://www.instagram.com/finance.4future" target="_blank" rel="noopener" class="hover:text-white transition-colors flex items-center gap-x-1 text-white/90">
+            <i class="fa-brands fa-instagram"></i><span>Instagram</span>
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSchH_io6kWDjHRBQhZ-bfIUkF8kb-GQ75v2Zf8AEupTkvYUbw/viewform?usp=sharing&ouid=117813947364170481853" target="_blank" class="px-5 py-1.5 text-xs font-semibold rounded-full bg-gradient-to-r from-[#FF2E92] to-[#3B82F6] text-white">JOIN NOW</a>
+        </div>
+        <div class="md:hidden">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSchH_io6kWDjHRBQhZ-bfIUkF8kb-GQ75v2Zf8AEupTkvYUbw/viewform?usp=sharing&ouid=117813947364170481853" target="_blank" class="px-4 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-[#FF2E92] to-[#3B82F6] text-white">JOIN</a>
+        </div>
       </div>
     </div>
   </nav>
 
-  <div class="pt-20 max-w-2xl mx-auto px-6 pb-16 text-center">
+  <div class="pt-24 max-w-2xl mx-auto px-6 pb-16 text-center">
     <h1 class="text-5xl font-bold tracking-tighter mb-4">Join as a Volunteer</h1>
     <p class="text-lg text-white/70 mb-10">We're always looking for passionate volunteers to teach basic financial literacy in Hyderabad.</p>
 
