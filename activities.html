@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities • Finance4Future</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; background: #000; color: #fff; }
+    .glass { background: rgba(255,255,255,0.045); backdrop-filter: blur(40px) saturate(180%); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15); }
+    .nav-pill { background: rgba(10,10,15,0.75); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1); }
+    .section-title { font-family: 'Space Grotesk', system-ui, sans-serif; }
+    .glass-liquid { position: relative; overflow: hidden; }
+    .glass-liquid::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.1) 50%, transparent 80%); transform: translateX(-100%) translateY(-100%); transition: transform 0.6s cubic-bezier(0.23,1,0.32,1); }
+    .glass-liquid:hover::before { transform: translateX(0) translateY(0); }
+  </style>
+</head>
+<body>
+  <!-- Same floating nav -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[999] w-[92%] max-w-[1100px]">
+    <div class="glass flex items-center justify-between px-8 py-3 rounded-full nav-pill">
+      <div class="hidden md:flex items-center gap-x-7 text-sm font-medium text-white/80">
+        <a href="index.html">Home</a>
+        <a href="activities.html" class="text-white">Activities</a>
+        <a href="meet-the-team.html">Meet the Team</a>
+      </div>
+      <a href="index.html" class="flex items-center gap-x-3">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#FF2E92] to-[#3B82F6] flex items-center justify-center">
+          <span class="text-white text-[10px] font-black">F4F</span>
+        </div>
+        <span class="font-semibold text-lg tracking-tight">Finance<span class="text-[#FF2E92]">4</span>Future</span>
+      </a>
+      <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
+        <a href="join-us.html">Join Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSchH_io6kWDjHRBQhZ-bfIUkF8kb-GQ75v2Zf8AEupTkvYUbw/viewform?usp=sharing&ouid=117813947364170481853" target="_blank" class="px-6 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-[#FF2E92] to-[#3B82F6] text-white">JOIN NOW</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-24 pb-16 max-w-5xl mx-auto px-6">
+    <h1 class="text-5xl font-bold tracking-tighter mb-4">Activities</h1>
+    <p class="text-xl text-white/70 max-w-md mb-12">Three core programs building financial capability.</p>
+
+    <div class="space-y-8">
+      <div class="glass rounded-3xl p-8">
+        <h2 class="text-3xl font-semibold mb-3">Teaching Finance</h2>
+        <p class="text-white/70">Coming soon — detailed curriculum, session plans, and impact stories.</p>
+        <a href="finance.html" class="mt-4 inline-block text-[#FF2E92]">View program page →</a>
+      </div>
+      <div class="glass rounded-3xl p-8">
+        <h2 class="text-3xl font-semibold mb-3">Teaching Entrepreneurship</h2>
+        <p class="text-white/70">Coming soon — detailed curriculum, session plans, and impact stories.</p>
+        <a href="entrepreneurship.html" class="mt-4 inline-block text-[#3B82F6]">View program page →</a>
+      </div>
+      <div class="glass rounded-3xl p-8">
+        <h2 class="text-3xl font-semibold mb-3">Refining Student Projects</h2>
+        <p class="text-white/70">Coming soon — detailed curriculum, session plans, and impact stories.</p>
+        <a href="projects.html" class="mt-4 inline-block">View program page →</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu simple
+  </script>
+</body>
+</html>
