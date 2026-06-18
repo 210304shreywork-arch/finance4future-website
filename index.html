@@ -18,12 +18,19 @@
       --black: #000000;
     }
 
-    * {
-      cursor: none;
-    }
-
-    body {
-      cursor: none;
+    /* Subtle ring around normal cursor (laptop style) */
+    .cursor-ring {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(255, 46, 146, 0.25);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: width .1s, height .1s;
     }
 
     .tail-container {
@@ -337,73 +344,69 @@
   </style>
 </head>
 <body class="tail-container bg-black text-white overflow-x-hidden">
-  <!-- CUSTOM CURSOR -->
-  <div id="custom-cursor"></div>
+  <!-- Subtle cursor ring (added via JS) -->
 
   <!-- Floating Background Orbs - Apple depth -->
   <div class="floating-orb orb-pink w-[380px] h-[380px] -top-10 -left-20" style="animation-delay: 0s;"></div>
   <div class="floating-orb orb-blue w-[460px] h-[460px] top-1/2 -right-24" style="animation-delay: -9s;"></div>
 
-  <!-- Navbar - Glassmorphic -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10" style="background: rgba(0,0,0,0.55); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center gap-x-4">
-        <div class="logo-circle w-11 h-11 border-[#FF2E92]">
-          <div class="f4f-logo text-[13px] leading-none text-center font-black tracking-[-2px]">
-            <span class="pink">f</span><span class="text-white">inanc</span><br>
-            <span class="text-white">e</span><span class="blue">or</span>
-          </div>
-        </div>
-        <div class="f4f-logo text-2xl font-black tracking-[-1.5px]">
-          <span class="pink">f</span><span class="white">inance</span><span class="blue">4</span><span class="white">Future</span>
-        </div>
+  <!-- Floating Navbar - Logo in the middle, pill style like reference -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[999] w-[95%] max-w-5xl">
+    <div class="glass-liquid glass flex items-center justify-between px-6 py-3 rounded-full border border-white/10 shadow-2xl"
+         style="background: rgba(10, 15, 30, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
+      
+      <!-- Left links -->
+      <div class="hidden md:flex items-center gap-x-6 text-sm font-medium text-white/80">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="activities.html" class="hover:text-white transition-colors">Activities</a>
+        <a href="meet-the-team.html" class="hover:text-white transition-colors">Meet the Team</a>
       </div>
 
-      <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-        <a href="#home" class="nav-link text-white/70 hover:text-white">Home</a>
-        <a href="#activities" class="nav-link text-white/70 hover:text-white">Activities</a>
-        <a href="#meet-the-team" class="nav-link text-white/70 hover:text-white">Meet the Team</a>
-        <a href="#join-us" class="nav-link text-white/70 hover:text-white">Join Us</a>
-        <a href="#contact" class="nav-link text-white/70 hover:text-white">Contact</a>
-      </div>
+      <!-- Center Logo -->
+      <a href="index.html" class="flex items-center gap-x-2 text-lg font-bold tracking-tight">
+        <span class="f4f-logo">
+          <span class="text-[#FF2E92]">F</span>inance<span class="text-[#3B82F6]">4</span>Future
+        </span>
+      </a>
 
-      <div class="hidden md:flex items-center gap-x-3">
-        <a href="https://www.instagram.com/finance.4future/" target="_blank"
-           class="px-5 py-2.5 text-sm rounded-full border border-white/20 hover:border-white/40 transition-all flex items-center gap-x-2">
-          <i class="fa-brands fa-instagram"></i>
-          <span>Instagram</span>
-        </a>
-        <a href="#join-us" 
-           class="crazy-btn crazy-btn-pink px-6 py-2.5 text-sm rounded-full font-semibold">
-          Join Us
+      <!-- Right links + button -->
+      <div class="hidden md:flex items-center gap-x-6 text-sm font-medium">
+        <a href="join-us.html" class="hover:text-white transition-colors text-white/80">Join Us</a>
+        <a href="contact.html" class="hover:text-white transition-colors text-white/80">Contact</a>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSchH_io6kWDjHRBQhZ-bfIUkF8kb-GQ75v2Zf8AEupTkvYUbw/viewform?usp=sharing&ouid=117813947364170481853" 
+           target="_blank"
+           class="px-5 py-1.5 text-xs font-semibold rounded-full bg-gradient-to-r from-[#FF2E92] to-[#3B82F6] text-white hover:brightness-110 transition-all shadow-lg">
+          JOIN NOW
         </a>
       </div>
 
-      <!-- Mobile menu button -->
-      <button id="mobile-btn"
-              class="md:hidden flex items-center justify-center w-10 h-10 text-white hover:bg-white/10 rounded-xl transition-colors"
-              aria-label="Toggle menu">
-        <i class="fa-solid fa-bars text-xl"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-black/90 backdrop-blur-xl px-6 py-8 text-sm">
-      <div class="flex flex-col gap-y-4">
-        <a href="#home" class="py-1">Home</a>
-        <a href="#activities" class="py-1">Activities</a>
-        <a href="#meet-the-team" class="py-1">Meet the Team</a>
-        <a href="#join-us" class="py-1">Join Us</a>
-        <a href="#contact" class="py-1">Contact</a>
-        <div class="pt-4 border-t border-white/10 flex flex-col gap-y-3">
-          <a href="https://www.instagram.com/finance.4future/" target="_blank" class="flex items-center gap-x-2">Instagram</a>
-          <a href="#join-us" class="crazy-btn crazy-btn-pink w-full text-center py-3 rounded-full">Join Us</a>
-        </div>
+      <!-- Mobile -->
+      <div class="md:hidden flex items-center">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSchH_io6kWDjHRBQhZ-bfIUkF8kb-GQ75v2Zf8AEupTkvYUbw/viewform?usp=sharing&ouid=117813947364170481853" 
+           target="_blank"
+           class="px-4 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-[#FF2E92] to-[#3B82F6] text-white">
+          JOIN
+        </a>
+        <button id="mobile-btn" class="ml-3 text-white/80 p-1">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-4 right-4 z-[999] glass rounded-3xl p-6 text-sm border border-white/10">
+    <div class="flex flex-col gap-y-3">
+      <a href="index.html" class="py-1">Home</a>
+      <a href="activities.html" class="py-1">Activities</a>
+      <a href="meet-the-team.html" class="py-1">Meet the Team</a>
+      <a href="join-us.html" class="py-1">Join Us</a>
+      <a href="contact.html" class="py-1">Contact</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSchH_io6kWDjHRBQhZ-bfIUkF8kb-GQ75v2Zf8AEupTkvYUbw/viewform?usp=sharing&ouid=117813947364170481853" 
+         target="_blank" class="mt-2 px-5 py-2 text-center rounded-full bg-gradient-to-r from-[#FF2E92] to-[#3B82F6] text-white text-sm font-semibold">JOIN NOW</a>
+    </div>
+  </div>
 
   <!-- HERO - Premium Apple-inspired -->
   <header class="relative min-h-[100dvh] flex items-center justify-center pt-20 bg-black overflow-hidden">
@@ -546,9 +549,10 @@
           </div>
           <div class="p-6">
             <p class="text-white/75 leading-relaxed">Practical sessions on budgeting, saving, credit, and understanding money in everyday life. Students leave with actionable skills.</p>
-            <div class="mt-6 flex items-center text-sm text-white/50 group-hover:text-white/70 transition-colors">
-              <span>Learn more</span>
-              <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
+            <div class="mt-6">
+              <a href="finance.html" class="inline-flex items-center text-sm text-white/70 hover:text-white group-hover:gap-2 transition-all">
+                Learn more <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -565,9 +569,10 @@
           </div>
           <div class="p-6">
             <p class="text-white/75 leading-relaxed">From idea to execution — ideation, pitching, basic business models, and building real micro-ventures with mentorship.</p>
-            <div class="mt-6 flex items-center text-sm text-white/50 group-hover:text-white/70 transition-colors">
-              <span>Learn more</span>
-              <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
+            <div class="mt-6">
+              <a href="entrepreneurship.html" class="inline-flex items-center text-sm text-white/70 hover:text-white group-hover:gap-2 transition-all">
+                Learn more <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -584,9 +589,10 @@
           </div>
           <div class="p-6">
             <p class="text-white/75 leading-relaxed">1:1 mentoring and group workshops to polish real student initiatives — from business plans to community projects.</p>
-            <div class="mt-6 flex items-center text-sm text-white/50 group-hover:text-white/70 transition-colors">
-              <span>Learn more</span>
-              <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
+            <div class="mt-6">
+              <a href="projects.html" class="inline-flex items-center text-sm text-white/70 hover:text-white group-hover:gap-2 transition-all">
+                Learn more <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -723,30 +729,42 @@
       // already in style
     }
 
-    // Custom Cursor
-    function initCustomCursor() {
-      const cursor = document.getElementById('custom-cursor');
+    // Subtle ring around normal cursor (laptop style)
+    function initCursorRing() {
+      const ring = document.createElement('div');
+      ring.className = 'cursor-ring';
+      document.body.appendChild(ring);
+
       let mouseX = 0, mouseY = 0;
-      let cursorX = 0, cursorY = 0;
+      let ringX = 0, ringY = 0;
 
       document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
       });
 
-      function animateCursor() {
-        cursorX += (mouseX - cursorX) * 0.22;
-        cursorY += (mouseY - cursorY) * 0.22;
-        cursor.style.left = `${cursorX - 16}px`;
-        cursor.style.top = `${cursorY - 16}px`;
-        requestAnimationFrame(animateCursor);
+      function animateRing() {
+        ringX += (mouseX - ringX) * 0.2;
+        ringY += (mouseY - ringY) * 0.2;
+        ring.style.left = `${ringX - 12}px`;
+        ring.style.top = `${ringY - 12}px`;
+        requestAnimationFrame(animateRing);
       }
-      animateCursor();
+      animateRing();
 
-      const interactive = document.querySelectorAll('a, button, .tilt-card, .glass-liquid, .crazy-btn');
+      // Grow ring slightly on interactive elements
+      const interactive = document.querySelectorAll('a, button, .tilt-card, .glass-liquid');
       interactive.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        el.addEventListener('mouseenter', () => {
+          ring.style.width = '36px';
+          ring.style.height = '36px';
+          ring.style.borderColor = 'rgba(59, 130, 246, 0.45)';
+        });
+        el.addEventListener('mouseleave', () => {
+          ring.style.width = '24px';
+          ring.style.height = '24px';
+          ring.style.borderColor = 'rgba(255, 46, 146, 0.25)';
+        });
       });
     }
 
@@ -903,14 +921,38 @@
     }
 
     function init() {
-      initCustomCursor();
+      initCursorRing();
       initParticles();
       initTiltCards();
       initScrollReveals();
       initMobileMenu();
+      initParallaxMotion();
 
-      // Make sure orbs and grid are visible
-      console.log('%c[Finance4Future] Apple-glass + moving animations ready.', 'color:#FF2E92');
+      console.log('%c[Finance4Future] Glass + motion site ready.', 'color:#FF2E92');
+    }
+
+    // Additional parallax and motion for glass elements (scroll + mouse)
+    function initParallaxMotion() {
+      const glassEls = document.querySelectorAll('.glass, .glass-liquid');
+
+      // Scroll parallax
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY * 0.05;
+        glassEls.forEach((el, i) => {
+          const offset = (i % 3) * 5;
+          el.style.transform = `translateY(${scrollY + offset}px)`;
+        });
+      });
+
+      // Mouse parallax on glass
+      document.addEventListener('mousemove', (e) => {
+        glassEls.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+          el.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
     }
 
     if (document.readyState === 'loading') {
