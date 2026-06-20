@@ -36,31 +36,27 @@
       line-height: 0.9;
     }
 
-    /* Dark navy base for the site (except hero) - rich, non-plain background with something going on */
+    /* Premium layered dark background - deep, rich, with depth and subtle movement (no flat or checkered) */
     body {
-      background-color: var(--navy);
-      color: #FFFFFF;
-    }
-
-    /* Subtle but active non-oceanic texture/gradient for the rest of the site (fine grid + soft depth) */
-    .site-bg {
+      background: #0a1628;
       background-image: 
-        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px),
-        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.018) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.015) 0%, transparent 55%);
-      background-size: 28px 28px, 28px 28px, 100% 100%, 100% 100%;
+        linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0.5) 100%),
+        radial-gradient(ellipse at 20% 10%, rgba(59,130,246,0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 90%, rgba(255,46,146,0.1) 0%, transparent 45%),
+        linear-gradient(120deg, rgba(255,255,255,0.005) 0%, transparent 50%, rgba(255,255,255,0.005) 100%);
+      color: #FFFFFF;
     }
 
     /* Clean minimal styles */
     .clean-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: border-color 0.2s ease;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
     }
 
     .clean-card:hover {
-      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.025);
+      border-color: rgba(255, 255, 255, 0.12);
     }
 
     /* Simple accent button matching clean premium */
@@ -68,23 +64,24 @@
       background: #fff;
       color: #000;
       font-weight: 600;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .clean-btn:hover {
       background: #FF2E92;
       color: #fff;
+      transform: translateY(-1px);
     }
 
     .clean-btn-outline {
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.25);
       font-weight: 600;
       transition: all 0.2s ease;
     }
 
     .clean-btn-outline:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.4);
     }
 
     .section-title {
@@ -94,28 +91,42 @@
       letter-spacing: -0.025em;
     }
 
-    /* Transparent glass effect for hero (clean, not oceanic) */
+    /* Strong visible glassmorphism for hero - premium with depth and layers */
     .hero-glass {
-      background: rgba(255, 255, 255, 0.045);
-      backdrop-filter: blur(22px) saturate(180%);
-      -webkit-backdrop-filter: blur(22px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3);
     }
 
-    /* Apple smooth reveals */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.7s cubic-bezier(0.23, 1.0, 0.32, 1);
+    /* Instagram gradient button in navbar - IG brand colors */
+    .ig-button {
+      background: linear-gradient(45deg, #f56040, #c13584, #405de6);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8em;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
-    
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .ig-button:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+    .ig-button i {
+      color: white;
     }
 
     .quotes-track {
-      animation: quotes-slide 38s linear infinite;
+      animation: quotes-slide 40s linear infinite;
     }
     @keyframes quotes-slide {
       0% { transform: translateX(0); }
@@ -123,7 +134,7 @@
     }
   </style>
 </head>
-<body class="tail-container site-bg text-white overflow-x-hidden">
+<body class="tail-container text-white overflow-x-hidden">
   <!-- Subtle cursor ring (added via JS) -->
 
 
@@ -140,7 +151,7 @@
         <a href="activities.html" class="hover:text-[#FF2E92] transition-colors">Activities</a>
         <a href="meet-the-team.html" class="hover:text-[#FF2E92] transition-colors">Team</a>
         <a href="contact.html" class="hover:text-[#FF2E92] transition-colors">Contact</a>
-        <a href="https://www.instagram.com/finance.4future" target="_blank" rel="noopener" class="hover:text-[#FF2E92] transition-colors flex items-center gap-x-1.5">
+        <a href="https://www.instagram.com/finance.4future" target="_blank" rel="noopener" class="ig-button flex items-center gap-x-1.5">
           <i class="fa-brands fa-instagram"></i>
           <span>Instagram</span>
         </a>
@@ -156,31 +167,31 @@
     </div>
   </nav>
 
-  <!-- Proper separate Hero section at the very top with transparent glass effect (clean, non-oceanic) -->
-  <section id="hero" class="pt-20 pb-14 bg-[#0d1524]">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="hero-glass rounded-3xl px-8 py-14 md:py-16 text-center">
-        <div class="mb-6">
-          <div class="f4f-logo text-[68px] md:text-[92px] leading-none font-black tracking-[-4.5px]">
+  <!-- Proper separate Hero section - bigger and prominent with strong glass -->
+  <section id="hero" class="pt-12 pb-24 min-h-[80vh] flex items-center bg-[#0a1628]">
+    <div class="max-w-5xl mx-auto px-6 w-full">
+      <div class="hero-glass rounded-3xl px-10 py-20 md:py-24 text-center">
+        <div class="mb-8">
+          <div class="f4f-logo text-[80px] md:text-[110px] leading-none font-black tracking-[-5px]">
             <span class="text-[#FF2E92]">F</span>inance<span class="text-[#3B82F6]">4</span>Future
           </div>
         </div>
 
-        <p class="text-2xl md:text-[27px] tracking-tight text-white/95 mb-4 max-w-2xl mx-auto">
+        <p class="text-3xl md:text-[32px] tracking-tight text-white/95 mb-5 max-w-3xl mx-auto">
           Student-led NGO teaching financial literacy to underprivileged high school students at government schools in Hyderabad.
         </p>
 
-        <p class="text-lg text-white/80 mb-8 max-w-xl mx-auto">
+        <p class="text-xl text-white/85 mb-10 max-w-2xl mx-auto">
           Funded by Harvard. Volunteer-powered programs for lasting impact.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-          <a href="#activities" class="clean-btn px-8 py-3 rounded-full text-sm inline-flex items-center justify-center">Explore Programs</a>
-          <a href="join-us.html" class="clean-btn-outline px-8 py-3 rounded-full text-sm inline-flex items-center justify-center">Join as a Volunteer</a>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <a href="#activities" class="clean-btn px-10 py-4 rounded-2xl text-base inline-flex items-center justify-center">Explore Programs</a>
+          <a href="join-us.html" class="clean-btn-outline px-10 py-4 rounded-2xl text-base inline-flex items-center justify-center">Join as a Volunteer</a>
         </div>
 
         <!-- Clean credibility facts -->
-        <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs tracking-[1.5px] text-white/70">
+        <div class="flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm tracking-[2px] text-white/70">
           <div>FUNDED BY HARVARD</div>
           <div>VOLUNTEER POWERED</div>
           <div>HYDERABAD FOCUS</div>
@@ -190,7 +201,7 @@
   </section>
 
   <!-- Thin endless sliding quotes section (single line) right below hero -->
-  <div class="quotes-slider overflow-hidden py-[7px] border-y border-white/10" style="background-color: color-mix(in srgb, var(--navy) 88%, transparent);">
+  <div class="quotes-slider overflow-hidden py-[7px] border-y border-white/10" style="background: rgba(10,22,40,0.4);">
     <div class="quotes-track flex items-center whitespace-nowrap text-[13px] tracking-[1.2px] text-white/75 font-light">
       <span class="px-10">“The best investment you can make is in yourself.” — Warren Buffett</span>
       <span class="px-10">•</span>
@@ -211,7 +222,7 @@
   </div>
 
   <!-- ACTIVITIES - Clean -->
-  <section id="activities" class="py-20 site-bg">
+  <section id="activities" class="py-20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
         <div class="inline px-5 py-1.5 rounded-full text-xs tracking-[3px] border border-white/20 text-white/60 mb-4">WHAT WE DO</div>
@@ -251,7 +262,7 @@
   </section>
 
   <!-- MEET THE TEAM - clean coral-style stacked blocks -->
-  <section id="meet-the-team" class="py-20 site-bg">
+  <section id="meet-the-team" class="py-20">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
         <div class="text-xs tracking-[2px] text-white/50 mb-2">THE PEOPLE BEHIND THE MISSION</div>
@@ -291,7 +302,7 @@
   </section>
 
   <!-- JOIN US - clean -->
-  <section id="join-us" class="py-20 site-bg">
+  <section id="join-us" class="py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <div class="text-xs tracking-[2px] text-white/50 mb-2">GET INVOLVED</div>
       <h2 class="section-title tracking-tighter mb-4">Join as a Volunteer</h2>
@@ -306,7 +317,7 @@
   </section>
 
   <!-- CONTACT - clean -->
-  <section id="contact" class="py-20 site-bg">
+  <section id="contact" class="py-20">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-10">
         <h2 class="section-title tracking-tighter mb-2">Contact Us</h2>
@@ -328,7 +339,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 py-10 site-bg">
+  <footer class="border-t border-white/10 py-10">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-y-4 text-sm text-white/60">
       <div>© Finance4Future • Student-led in Hyderabad</div>
       <div class="flex items-center gap-x-5">
