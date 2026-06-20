@@ -15,7 +15,6 @@
     :root {
       --pink: #FF2E92;
       --blue: #3B82F6;
-      --navy: #0a1628;
     }
 
     .tail-container {
@@ -36,14 +35,13 @@
       line-height: 0.9;
     }
 
-    /* Premium layered dark background - deep, rich, with depth and subtle movement (no flat or checkered) */
+    /* Pure black background with subtle layered depth for premium feel (no flat, no navy, no patterns/checks) */
     body {
-      background: #0a1628;
+      background: #000000;
       background-image: 
-        linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0.5) 100%),
-        radial-gradient(ellipse at 20% 10%, rgba(59,130,246,0.15) 0%, transparent 40%),
-        radial-gradient(ellipse at 80% 90%, rgba(255,46,146,0.1) 0%, transparent 45%),
-        linear-gradient(120deg, rgba(255,255,255,0.005) 0%, transparent 50%, rgba(255,255,255,0.005) 100%);
+        radial-gradient(ellipse at 50% 20%, rgba(255,255,255,0.025) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 80%, rgba(255,255,255,0.015) 0%, transparent 45%),
+        linear-gradient(180deg, rgba(255,255,255,0.01) 0%, transparent 30%, rgba(255,255,255,0.01) 100%);
       color: #FFFFFF;
     }
 
@@ -91,16 +89,16 @@
       letter-spacing: -0.025em;
     }
 
-    /* Strong visible glassmorphism for hero - premium with depth and layers */
+    /* Strong and visible glassmorphism for hero (backdrop blur, semi-transp bg, border for real glass look) */
     .hero-glass {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(40px) saturate(180%);
-      -webkit-backdrop-filter: blur(40px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(50px) saturate(200%);
+      -webkit-backdrop-filter: blur(50px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.30);
       box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.6),
-        inset 0 2px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+        0 25px 70px rgba(0, 0, 0, 0.7),
+        inset 0 3px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.4);
     }
 
     /* Instagram gradient button in navbar - IG brand colors */
@@ -167,10 +165,10 @@
     </div>
   </nav>
 
-  <!-- Proper separate Hero section - bigger and prominent with strong glass -->
-  <section id="hero" class="pt-12 pb-24 min-h-[80vh] flex items-center bg-[#0a1628]">
+  <!-- Proper separate Hero section - big, prominent, visible at top with strong glass -->
+  <section id="hero" class="pt-16 pb-28 min-h-[85vh] flex items-center bg-[#000000]">
     <div class="max-w-5xl mx-auto px-6 w-full">
-      <div class="hero-glass rounded-3xl px-10 py-20 md:py-24 text-center">
+      <div class="hero-glass rounded-3xl px-10 py-24 md:py-28 text-center">
         <div class="mb-8">
           <div class="f4f-logo text-[80px] md:text-[110px] leading-none font-black tracking-[-5px]">
             <span class="text-[#FF2E92]">F</span>inance<span class="text-[#3B82F6]">4</span>Future
@@ -201,7 +199,7 @@
   </section>
 
   <!-- Thin endless sliding quotes section (single line) right below hero -->
-  <div class="quotes-slider overflow-hidden py-[7px] border-y border-white/10" style="background: rgba(10,22,40,0.4);">
+  <div class="quotes-slider overflow-hidden py-[7px] border-y border-white/10" style="background: rgba(0,0,0,0.3);">
     <div class="quotes-track flex items-center whitespace-nowrap text-[13px] tracking-[1.2px] text-white/75 font-light">
       <span class="px-10">“The best investment you can make is in yourself.” — Warren Buffett</span>
       <span class="px-10">•</span>
@@ -222,7 +220,7 @@
   </div>
 
   <!-- ACTIVITIES - Clean -->
-  <section id="activities" class="py-20">
+  <section id="activities" class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
         <div class="inline px-5 py-1.5 rounded-full text-xs tracking-[3px] border border-white/20 text-white/60 mb-4">WHAT WE DO</div>
@@ -262,7 +260,7 @@
   </section>
 
   <!-- MEET THE TEAM - clean coral-style stacked blocks -->
-  <section id="meet-the-team" class="py-20">
+  <section id="meet-the-team" class="py-24">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
         <div class="text-xs tracking-[2px] text-white/50 mb-2">THE PEOPLE BEHIND THE MISSION</div>
@@ -302,7 +300,7 @@
   </section>
 
   <!-- JOIN US - clean -->
-  <section id="join-us" class="py-20">
+  <section id="join-us" class="py-24">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <div class="text-xs tracking-[2px] text-white/50 mb-2">GET INVOLVED</div>
       <h2 class="section-title tracking-tighter mb-4">Join as a Volunteer</h2>
@@ -317,7 +315,7 @@
   </section>
 
   <!-- CONTACT - clean -->
-  <section id="contact" class="py-20">
+  <section id="contact" class="py-24">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-10">
         <h2 class="section-title tracking-tighter mb-2">Contact Us</h2>
@@ -339,7 +337,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 py-10">
+  <footer class="border-t border-white/10 py-14">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-y-4 text-sm text-white/60">
       <div>© Finance4Future • Student-led in Hyderabad</div>
       <div class="flex items-center gap-x-5">
