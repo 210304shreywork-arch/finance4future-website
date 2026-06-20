@@ -15,7 +15,7 @@
     :root {
       --pink: #FF2E92;
       --blue: #3B82F6;
-      --black: #000000;
+      --navy: #0a1628;
     }
 
     .tail-container {
@@ -36,13 +36,23 @@
       line-height: 0.9;
     }
 
-    /* Dark Theme Base - clean premium */
+    /* Dark navy base for the site (except hero) - rich, non-plain background with something going on */
     body {
-      background-color: #000000;
+      background-color: var(--navy);
       color: #FFFFFF;
     }
 
-    /* Clean minimal styles - no heavy glass, no liquid, no tilt */
+    /* Subtle but active non-oceanic texture/gradient for the rest of the site (fine grid + soft depth) */
+    .site-bg {
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px),
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.018) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.015) 0%, transparent 55%);
+      background-size: 28px 28px, 28px 28px, 100% 100%, 100% 100%;
+    }
+
+    /* Clean minimal styles */
     .clean-card {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -84,9 +94,12 @@
       letter-spacing: -0.025em;
     }
 
-    @keyframes grid-move {
-      0% { background-position: 0 0; }
-      100% { background-position: 38px 38px; }
+    /* Transparent glass effect for hero (clean, not oceanic) */
+    .hero-glass {
+      background: rgba(255, 255, 255, 0.045);
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     /* Apple smooth reveals */
@@ -101,37 +114,16 @@
       transform: translateY(0);
     }
 
-
-
-    .crazy-btn {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-      font-weight: 600;
+    .quotes-track {
+      animation: quotes-slide 38s linear infinite;
     }
-
-    .crazy-btn-pink {
-      background: #FF2E92;
-      color: white;
-    }
-    
-    .crazy-btn-pink:hover {
-      background: #FF1493;
-      transform: translateY(-1px) scale(1.01);
-    }
-
-    .crazy-btn-blue {
-      background: #3B82F6;
-      color: white;
-    }
-    
-    .crazy-btn-blue:hover {
-      background: #2563EB;
-      transform: translateY(-1px) scale(1.01);
+    @keyframes quotes-slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
   </style>
 </head>
-<body class="tail-container bg-black text-white overflow-x-hidden">
+<body class="tail-container site-bg text-white overflow-x-hidden">
   <!-- Subtle cursor ring (added via JS) -->
 
 
@@ -164,39 +156,62 @@
     </div>
   </nav>
 
-  <!-- Clean decluttered Hero - matches coral clean typography impact -->
-  <header class="pt-20 pb-16 bg-black">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <div class="mb-6">
-        <div class="f4f-logo text-[72px] md:text-[96px] leading-none font-black tracking-[-4px]">
-          <span class="text-[#FF2E92]">F</span>inance<span class="text-[#3B82F6]">4</span>Future
+  <!-- Proper separate Hero section at the very top with transparent glass effect (clean, non-oceanic) -->
+  <section id="hero" class="pt-20 pb-14 bg-[#0d1524]">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="hero-glass rounded-3xl px-8 py-14 md:py-16 text-center">
+        <div class="mb-6">
+          <div class="f4f-logo text-[68px] md:text-[92px] leading-none font-black tracking-[-4.5px]">
+            <span class="text-[#FF2E92]">F</span>inance<span class="text-[#3B82F6]">4</span>Future
+          </div>
+        </div>
+
+        <p class="text-2xl md:text-[27px] tracking-tight text-white/95 mb-4 max-w-2xl mx-auto">
+          Student-led NGO teaching financial literacy to underprivileged high school students at government schools in Hyderabad.
+        </p>
+
+        <p class="text-lg text-white/80 mb-8 max-w-xl mx-auto">
+          Funded by Harvard. Volunteer-powered programs for lasting impact.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+          <a href="#activities" class="clean-btn px-8 py-3 rounded-full text-sm inline-flex items-center justify-center">Explore Programs</a>
+          <a href="join-us.html" class="clean-btn-outline px-8 py-3 rounded-full text-sm inline-flex items-center justify-center">Join as a Volunteer</a>
+        </div>
+
+        <!-- Clean credibility facts -->
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs tracking-[1.5px] text-white/70">
+          <div>FUNDED BY HARVARD</div>
+          <div>VOLUNTEER POWERED</div>
+          <div>HYDERABAD FOCUS</div>
         </div>
       </div>
-
-      <p class="text-2xl md:text-[28px] tracking-tight text-white/90 mb-4 max-w-2xl mx-auto">
-        Student-led NGO teaching financial literacy to underprivileged high school students at government schools in Hyderabad.
-      </p>
-
-      <p class="text-lg text-white/70 mb-8 max-w-xl mx-auto">
-        Funded by Harvard. Volunteer-powered programs for lasting impact.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-        <a href="#activities" class="clean-btn px-8 py-3 rounded-full text-sm inline-flex items-center justify-center">Explore Programs</a>
-        <a href="join-us.html" class="clean-btn-outline px-8 py-3 rounded-full text-sm inline-flex items-center justify-center">Join as a Volunteer</a>
-      </div>
-
-      <!-- Clean credibility facts (coral-style award blocks) -->
-      <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs tracking-[1.5px] text-white/60">
-        <div>FUNDED BY HARVARD</div>
-        <div>VOLUNTEER POWERED</div>
-        <div>HYDERABAD FOCUS</div>
-      </div>
     </div>
-  </header>
+  </section>
+
+  <!-- Thin endless sliding quotes section (single line) right below hero -->
+  <div class="quotes-slider overflow-hidden py-[7px] border-y border-white/10" style="background-color: color-mix(in srgb, var(--navy) 88%, transparent);">
+    <div class="quotes-track flex items-center whitespace-nowrap text-[13px] tracking-[1.2px] text-white/75 font-light">
+      <span class="px-10">“The best investment you can make is in yourself.” — Warren Buffett</span>
+      <span class="px-10">•</span>
+      <span class="px-10">“Compound interest is the eighth wonder of the world.” — Albert Einstein</span>
+      <span class="px-10">•</span>
+      <span class="px-10">“An investment in knowledge pays the best interest.” — Benjamin Franklin</span>
+      <span class="px-10">•</span>
+      <span class="px-10">“The stock market is a device for transferring money from the impatient to the patient.”</span>
+      <!-- Duplicated for seamless infinite loop -->
+      <span class="px-10">“The best investment you can make is in yourself.” — Warren Buffett</span>
+      <span class="px-10">•</span>
+      <span class="px-10">“Compound interest is the eighth wonder of the world.” — Albert Einstein</span>
+      <span class="px-10">•</span>
+      <span class="px-10">“An investment in knowledge pays the best interest.” — Benjamin Franklin</span>
+      <span class="px-10">•</span>
+      <span class="px-10">“The stock market is a device for transferring money from the impatient to the patient.”</span>
+    </div>
+  </div>
 
   <!-- ACTIVITIES - Clean -->
-  <section id="activities" class="py-16 bg-black">
+  <section id="activities" class="py-20 site-bg">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
         <div class="inline px-5 py-1.5 rounded-full text-xs tracking-[3px] border border-white/20 text-white/60 mb-4">WHAT WE DO</div>
@@ -236,7 +251,7 @@
   </section>
 
   <!-- MEET THE TEAM - clean coral-style stacked blocks -->
-  <section id="meet-the-team" class="py-16 bg-black">
+  <section id="meet-the-team" class="py-20 site-bg">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
         <div class="text-xs tracking-[2px] text-white/50 mb-2">THE PEOPLE BEHIND THE MISSION</div>
@@ -276,7 +291,7 @@
   </section>
 
   <!-- JOIN US - clean -->
-  <section id="join-us" class="py-16 bg-black">
+  <section id="join-us" class="py-20 site-bg">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <div class="text-xs tracking-[2px] text-white/50 mb-2">GET INVOLVED</div>
       <h2 class="section-title tracking-tighter mb-4">Join as a Volunteer</h2>
@@ -291,7 +306,7 @@
   </section>
 
   <!-- CONTACT - clean -->
-  <section id="contact" class="py-16 bg-black">
+  <section id="contact" class="py-20 site-bg">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-10">
         <h2 class="section-title tracking-tighter mb-2">Contact Us</h2>
@@ -313,7 +328,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 py-10 bg-black">
+  <footer class="border-t border-white/10 py-10 site-bg">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-y-4 text-sm text-white/60">
       <div>© Finance4Future • Student-led in Hyderabad</div>
       <div class="flex items-center gap-x-5">
